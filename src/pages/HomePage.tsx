@@ -21,40 +21,40 @@ function HomePage(countries: Country[]) {
 
   return (
     <>
-      <div className="bg-stone-50 h-auto dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto p-4 px-8">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="relative">
+      <div className="bg-stone-50 dark:bg-slate-800">
+        <div className="p-4 px-8 mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="relative w-full sm:w-auto">
               <Search
                 size={24}
-                strokeWidth={2.5}
-                className="absolute right-4 top-4 dark:stroke-black"
+                strokeWidth={3}
+                className="absolute left-5 top-4 stroke-gray-400 dark:stroke-zinc-100"
               />
               <input
                 name="search"
-                className="p-4 w-64"
+                className="w-full px-16 py-4 rounded-md shadow-md sm:w-96 dark:bg-slate-700 dark:text-zinc-100"
                 placeholder="Search for a country..."
                 onChange={(e) => searchItems(e.target.value)}
               />
             </div>
-            <select
-              defaultValue={"Filter by Region"}
-              className="p-4"
-              onChange={(e) => searchItems(e.target.value)}
-            >
-              <option hidden value="">
-                Filter by Region
-              </option>
-              {regions.map((region) => {
-                return (
-                  <option key={region} value={region}>
-                    {region}
-                  </option>
-                );
-              })}
-            </select>
+            <div className="">
+              <select
+                defaultValue={"Filter by Region"}
+                className="p-4 rounded-md shadow-md cursor-pointer dark:bg-slate-700 dark:text-zinc-100"
+                onChange={(e) => searchItems(e.target.value)}
+              >
+                <option hidden>Filter by Region</option>
+                {regions.map((region) => {
+                  return (
+                    <option key={region} value={region}>
+                      {region}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center text-center gap-8 py-2">
+          <div className="flex flex-wrap justify-center gap-8 py-6 text-center ">
             {filteredCountries.map((country) => {
               return <CountryCard key={country.name.common} {...country} />;
             })}

@@ -4,9 +4,9 @@ import Switcher from "../components/theme-switcher";
 function Navbar() {
   return (
     <>
-      <div className="border-b-2 dark:border-slate-600">
-        <div className="max-w-7xl flex justify-between items-center mx-auto text-md sm:text-xl p-4 px-8">
-          <Link to="/" className="font-bold py-2">
+      <div className="shadow-lg h-18 dark:bg-slate-700 ">
+        <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl text-md sm:text-xl">
+          <Link to="/" className="py-2 font-bold">
             Where in the world?
           </Link>
           <Switcher />

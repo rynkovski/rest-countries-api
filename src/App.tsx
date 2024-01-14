@@ -23,7 +23,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage {...countries} />} />
-          <Route path="/:id" element={<CountryPage />} />
+          <Route path="/:id" element={<CountryPage {...countries} />} />
         </Routes>
       </BrowserRouter>
     </>

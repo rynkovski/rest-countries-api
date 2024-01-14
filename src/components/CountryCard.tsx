@@ -2,34 +2,38 @@ import { Link } from "react-router-dom";
 
 function CountryCard(country: Country) {
   const getCountry = () => {
-    console.log(country.name.common);
+    console.log(country.cca3);
   };
   return (
     <>
-      <Link to={country.name.common}>
+      <Link className="flex-1" to={country.cca3}>
         <div
-          className="w-64 h-80 flex shadow-lg dark:bg-slate-500 flex-col justify-center cursor-pointer"
+          className="flex flex-col overflow-hidden rounded-md shadow-lg cursor-pointer dark:bg-slate-700 hover:dark:bg-slate-700/50"
           onClick={getCountry}
         >
-          <div className="h-full ">
-            <img className="aspect-[16/10]" src={country.flags.svg} />
+          <div className="h-1/2">
+            <img
+              className="w-full aspect-video"
+              src={country.flags.png}
+              alt={country.name.official}
+            />
           </div>
 
-          <div className="flex flex-col items-start gap-1 p-4">
-            <p className="font-bold text-md py-2">{country.name.common}</p>
+          <div className="flex flex-col items-start gap-1 p-4 h-1/2">
+            <p className="py-2 font-bold text-md">{country.name.common}</p>
             <p className="font-semibold">
               Population:
-              <span className="font-normal pl-1">
+              <span className="pl-1 font-normal">
                 {country.population.toLocaleString()}
               </span>
             </p>
             <p className="font-semibold">
               Region:
-              <span className="font-normal pl-1">{country.region}</span>
+              <span className="pl-1 font-normal">{country.region}</span>
             </p>
             <p className="font-semibold">
               Capital:
-              <span className="font-normal pl-1">{country.capital}</span>
+              <span className="pl-1 font-normal">{country.capital}</span>
             </p>
           </div>
         </div>

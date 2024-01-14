@@ -15,14 +15,11 @@ export default function Switcher() {
   return (
     <>
       <button
-        className="flex items-center gap-2 py-1 px-2 hover:rounded-lg"
+        className="flex gap-2 px-2 py-1 hover:bg-slate-100 hover:dark:bg-slate-700 hover:rounded-lg"
         onClick={toggleDarkMode}
       >
-        {darkMode ? (
-          <Sun size={18} strokeWidth={2} />
-        ) : (
-          <Moon size={18} strokeWidth={2} />
-        )}
+        {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+        <div className="text-sm font-semibold ">Dark Mode</div>
       </button>
     </>
   );
